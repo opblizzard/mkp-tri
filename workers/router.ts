@@ -3,10 +3,14 @@ export interface Env {
   CODEX_BUCKET: string;
 }
 
-import type { ExecutionContext } from '@cloudflare/workers-types';
+import type { ExecutionContext } from "@cloudflare/workers-types";
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname.startsWith("/omni/edge")) {
@@ -17,11 +21,9 @@ export default {
       return handleCodex(request, env);
     }
 
-    return new Response("MKP-TRI router online. Static assets served by Pages.", {
-      status: 200,
-      headers: { "content-type": "text/plain; charset=utf-8" }
-    });
-  }
+    // For all other routes, let Cloudflare Pages serve the static site
+    return fetch(request);
+  },
 };
 
 async function handleOmni(request: Request, env: Env): Promise<Response> {
@@ -34,11 +36,11 @@ async function handleOmni(request: Request, env: Env): Promise<Response> {
     JSON.stringify({
       status: "stubbed",
       received: body,
-      endpoint: env.OMNI_ENDPOINT
+      endpoint: env.OMNI_ENDPOINT,
     }),
     {
       status: 200,
-      headers: { "content-type": "application/json" }
+      headers: { "content-type": "application/json" },
     }
   );
 }
@@ -48,11 +50,11 @@ async function handleCodex(_request: Request, env: Env): Promise<Response> {
     JSON.stringify({
       status: "stubbed",
       bucket: env.CODEX_BUCKET,
-      message: "Codex worker is ready to bind to storage."
+      message: "Codex worker is ready to bind to storage.",
     }),
     {
       status: 200,
-      headers: { "content-type": "application/json" }
+      headers: { "content-type": "application/json" },
     }
   );
 }
