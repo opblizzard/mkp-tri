@@ -1,0 +1,20 @@
+---
+const { title = "MKP-TRI", description = "Living codex", ogImage = "/og/default-og.png" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <main class="flex-1 max-w-5xl mx-auto px-4 py-8">
+      <slot />
+    </main>
+  </body>
+</html>
