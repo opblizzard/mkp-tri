@@ -21,8 +21,12 @@ export default {
       return handleCodex(request, env);
     }
 
-    // For all other routes, let Cloudflare Pages serve the static site
-    return fetch(request);
+    // For all other routes, proxy to the Cloudflare Pages origin to avoid self-fetch 522
+    // Replace 'mkptri-org.pages.dev' with your actual Pages domain if different
+    const pagesOrigin = "https://mkptri-org.pages.dev";
+    const assetUrl = new URL(request.url);
+    assetUrl.hostname = pagesOrigin.replace(/^https?:\/\//, "");
+    return fetch(assetUrl.toString(), request);
   },
 };
 
