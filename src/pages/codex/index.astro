@@ -9,9 +9,10 @@ import Header from "@components/Header.astro";
 
 const entries = getCodexEntries();
 ---
-<div class="min-h-screen bg-gradient-to-b from-blue-900 via-violet-900 to-slate-900 text-white">
-  <Header />
-  <GlassPanel ariaLabel="Codex Hero Panel" className="max-w-2xl mx-auto mt-24 mb-10 py-10 px-4 text-center">
+<div class="min-h-screen bg-gradient-to-b from-blue-900 via-violet-900 to-slate-900 text-white flex items-center justify-center">
+  <div class="glass-layer w-full max-w-5xl mx-auto px-6 py-12 space-y-12">
+    <Header />
+    <GlassPanel ariaLabel="Codex Hero Panel" className="max-w-2xl mx-auto mt-24 mb-10 py-10 px-4 text-center">
       <h1 class="text-4xl font-bold text-codex-accent font-mono mb-2 drop-shadow-glow">Codex</h1>
       <p class="text-lg text-slate-200 font-mono mb-4">Ceremonial archive, protocol registry, and mythic memory for MKP-TRI. Inspect the cycles, entries, and timeline below.</p>
     </GlassPanel>
@@ -46,4 +47,5 @@ const entries = getCodexEntries();
         Contribute to the living codex and help inscribe the next mythic checkpoint.
       </div>
     </GlassPanel>
+  </div>
 </div>

@@ -65,3 +65,7 @@ a:hover {
 .code-shell {
   @apply bg-black/30 border border-glass-border rounded-lg p-4 font-mono text-base text-slate-100;
 }
+
+.glass-layer {
+  @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-glass transition-all duration-500;
+}

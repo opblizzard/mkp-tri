@@ -4,8 +4,8 @@ import ArtifactModal from "@components/ArtifactModal.astro";
 ---
 
 <Header />
-<div class="min-h-screen bg-gradient-to-b from-blue-900 via-cyan-900 to-slate-900 text-white">
-  <div class="max-w-5xl mx-auto px-6 py-12 space-y-12">
+<div class="min-h-screen bg-gradient-to-b from-blue-900 via-cyan-900 to-slate-900 text-white flex items-center justify-center">
+  <div class="glass-layer w-full max-w-5xl mx-auto px-6 py-12 space-y-12">
     <!-- Hero Panel -->
     <div class="glass-panel text-center mt-24" x-data="{commits: 19, artifacts: 12, lastSync: '2026-01-02', loading: false, refresh() { this.loading = true; setTimeout(() => { this.commits += 1; this.artifacts += 1; this.lastSync = new Date().toISOString().slice(0,10); this.loading = false; }, 800); } }">
       <h1 class="text-5xl font-bold mb-6">MKP-TRI — Living Codex</h1>
