@@ -9,40 +9,41 @@ import Header from "@components/Header.astro";
 
 const entries = getCodexEntries();
 ---
-<Header />
-<GlassPanel ariaLabel="Codex Hero Panel" className="max-w-2xl mx-auto mt-24 mb-10 py-10 px-4 text-center">
-    <h1 class="text-4xl font-bold text-codex-accent font-mono mb-2 drop-shadow-glow">Codex</h1>
-    <p class="text-lg text-slate-200 font-mono mb-4">Ceremonial archive, protocol registry, and mythic memory for MKP-TRI. Inspect the cycles, entries, and timeline below.</p>
-  </GlassPanel>
-  <GlassPanel ariaLabel="Codex Timeline & Entries Panel" className="w-full max-w-4xl mx-auto px-2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-    <GlassPanel ariaLabel="Codex Timeline" className="p-6">
-      <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Timeline</h3>
-      <Timeline items={[ 
-        { year: "2023", event: "Genesis cycle inscribed" },
-        { year: "2024", event: "Artifact registry expanded" },
-        { year: "2025", event: "Codex protocol formalized" },
-        { year: "2026", event: "Edge ceremonies unified" },
-      ]} />
+<div class="min-h-screen bg-gradient-to-b from-blue-900 via-violet-900 to-slate-900 text-white">
+  <Header />
+  <GlassPanel ariaLabel="Codex Hero Panel" className="max-w-2xl mx-auto mt-24 mb-10 py-10 px-4 text-center">
+      <h1 class="text-4xl font-bold text-codex-accent font-mono mb-2 drop-shadow-glow">Codex</h1>
+      <p class="text-lg text-slate-200 font-mono mb-4">Ceremonial archive, protocol registry, and mythic memory for MKP-TRI. Inspect the cycles, entries, and timeline below.</p>
     </GlassPanel>
-    <GlassPanel ariaLabel="Codex Entries" className="p-6">
-      <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Entries</h3>
-      {entries.length === 0 ? (
-        <p class="text-base text-slate-400 font-mono">No entries yet. The codex is waiting for its first inscription.</p>
-      ) : (
-        <div class="space-y-3 sm:space-y-4">
-          {entries
-            .slice()
-            .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-            .map((entry) => <CodexEntry {...entry} />)}
-        </div>
-      )}
+    <GlassPanel ariaLabel="Codex Timeline & Entries Panel" className="w-full max-w-4xl mx-auto px-2 mb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <GlassPanel ariaLabel="Codex Timeline" className="p-6">
+        <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Timeline</h3>
+        <Timeline items={[ 
+          { year: "2023", event: "Genesis cycle inscribed" },
+          { year: "2024", event: "Artifact registry expanded" },
+          { year: "2025", event: "Codex protocol formalized" },
+          { year: "2026", event: "Edge ceremonies unified" },
+        ]} />
+      </GlassPanel>
+      <GlassPanel ariaLabel="Codex Entries" className="p-6">
+        <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Entries</h3>
+        {entries.length === 0 ? (
+          <p class="text-base text-slate-400 font-mono">No entries yet. The codex is waiting for its first inscription.</p>
+        ) : (
+          <div class="space-y-3 sm:space-y-4">
+            {entries
+              .slice()
+              .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+              .map((entry) => <CodexEntry {...entry} />)}
+          </div>
+        )}
+      </GlassPanel>
     </GlassPanel>
-  </GlassPanel>
-  <GlassPanel ariaLabel="About Codex Panel" className="w-full max-w-3xl mx-auto px-2 mb-16">
-    <h2 class="text-2xl font-bold text-codex-accent mb-4 font-mono">Why the Codex?</h2>
-    <div class="text-slate-200 text-base leading-relaxed">
-      The Codex is the ceremonial memory of MKP-TRI. It ensures every cycle, artifact, and protocol is open, inspectable, and sovereign. The archive is ever-expanding, shaped by community and ceremony.<br/><br/>
-      Contribute to the living codex and help inscribe the next mythic checkpoint.
-    </div>
-  </GlassPanel>
-</Layout>
+    <GlassPanel ariaLabel="About Codex Panel" className="w-full max-w-3xl mx-auto px-2 mb-16">
+      <h2 class="text-2xl font-bold text-codex-accent mb-4 font-mono">Why the Codex?</h2>
+      <div class="text-slate-200 text-base leading-relaxed">
+        The Codex is the ceremonial memory of MKP-TRI. It ensures every cycle, artifact, and protocol is open, inspectable, and sovereign. The archive is ever-expanding, shaped by community and ceremony.<br/><br/>
+        Contribute to the living codex and help inscribe the next mythic checkpoint.
+      </div>
+    </GlassPanel>
+</div>
