@@ -1,6 +1,5 @@
 import { Responsive, WidthProvider } from "react-grid-layout";
-import "react-grid-layout/css/styles.css";
-import "react-resizable/css/styles.css";
+// CSS imports moved to parent .astro or layout file
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 

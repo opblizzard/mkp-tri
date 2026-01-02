@@ -9,8 +9,7 @@ import {
   BottomNavBar,
 } from "../components/navigation/Navigation";
 import { CommandBar } from "../components/navigation/CommandBar";
-import "../styles/dashboard.css";
-import "../styles/visuals.css";
+// CSS imports moved to parent .astro or layout file
 
 const layouts = {
   lg: [
