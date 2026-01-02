@@ -48,30 +48,12 @@ import Timeline from "@components/Timeline.astro";
       <GlassCard className="p-4">
         <h3 class="font-bold text-codex-accent mb-2 font-mono">Pipeline Overview</h3>
         <Timeline items={[
-          { date: "2026-01-02", event: "Deploy to Cloudflare" },
-          { date: "2026-01-02", event: "Sync Transparency" },
-          { date: "2026-01-01", event: "CI/CD: GitHub Actions" },
-          { date: "2025-12-30", event: "Genesis Validation" },
-          { date: "2025-12-29", event: "Artifact Created" }
-        ]}>
-          {["Deploy to Cloudflare", "Sync Transparency", "CI/CD: GitHub Actions", "Genesis Validation", "Artifact Created"].map((event, i) => (
-            <div slot={`item-${i}`} class="glass p-3 mb-2">
-              <div class="flex items-center gap-3">
-                <span class="font-mono text-xs text-codex-accent">{[
-                  "2026-01-02",
-                  "2026-01-02",
-                  "2026-01-01",
-                  "2025-12-30",
-                  "2025-12-29"
-                ][i]}</span>
-                <span class="font-mono text-xs text-slate-200">{event}</span>
-              </div>
-              <div class="w-full h-1 bg-codex-accent/20 rounded mt-2">
-                <div class="h-1 bg-codex-accent rounded" style={`width: ${(100 - i * 20)}%`}></div>
-              </div>
-            </div>
-          ))}
-        </Timeline>
+          { year: "2026-01-02", event: "Deploy to Cloudflare" },
+          { year: "2026-01-02", event: "Sync Transparency" },
+          { year: "2026-01-01", event: "CI/CD: GitHub Actions" },
+          { year: "2025-12-30", event: "Genesis Validation" },
+          { year: "2025-12-29", event: "Artifact Created" }
+        ]} />
       </GlassCard>
     </div>
   </section>

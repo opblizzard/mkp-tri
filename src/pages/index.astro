@@ -1,13 +1,8 @@
 ---
 import Layout from "@components/Layout.astro";
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
-import TransparencyPanel from "@components/TransparencyPanel.astro";
----
-
----
 import GlassCard from "@components/GlassCard.astro";
 import Timeline from "@components/Timeline.astro";
+import TransparencyPanel from "@components/TransparencyPanel.astro";
 import content from "@data/content.json";
 ---
 <Layout title="MKP-TRI · Living Codex" description="Sovereign platform for mythic operations, blending AI, art, and transparency.">
@@ -59,16 +54,7 @@ import content from "@data/content.json";
     </section>
     <section class="w-full max-w-3xl mx-auto px-2 mb-12">
       <h2 class="text-2xl font-bold text-codex-accent mb-4 font-mono">Latest Updates</h2>
-      <Timeline items={content.timeline}>
-        {content.timeline.map((item, i) => (
-          <div slot={`item-${i}`} class="glass p-4 mb-2">
-            <div class="flex items-center gap-3">
-              <span class="font-mono text-xs text-codex-accent">{item.date}</span>
-              <span class="font-mono text-xs text-slate-200">{item.event}</span>
-            </div>
-          </div>
-        ))}
-      </Timeline>
+      <Timeline items={content.timeline} />
     </section>
     <section class="w-full max-w-3xl mx-auto px-2 mb-16">
       <h2 class="text-2xl font-bold text-codex-accent mb-4 font-mono">About MKP-TRI</h2>
