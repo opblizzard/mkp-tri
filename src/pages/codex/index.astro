@@ -1,4 +1,6 @@
 
+
+---
 import Layout from "@components/Layout.astro";
 import GlassCard from "@components/GlassCard.astro";
 import Timeline from "@components/Timeline.astro";
@@ -6,6 +8,7 @@ import CodexEntry from "@components/CodexEntry.astro";
 import { getCodexEntries } from "@lib/codex";
 
 const entries = getCodexEntries();
+---
     </GlassCard>
     <GlassCard className="p-6">
       <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Timeline</h3>
