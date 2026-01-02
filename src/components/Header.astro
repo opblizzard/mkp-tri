@@ -9,16 +9,17 @@ const nav = [
 ];
 ---
 
-<header class="glass fixed top-0 left-0 w-full z-50 mb-8 pb-4 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-2 sm:py-3 border-b border-glass-border backdrop-blur-md gap-2 sm:gap-0">
+<header class="glass sticky top-0 left-0 w-full z-50 mb-8 pb-4 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-2 sm:py-3 border-b border-glass-border backdrop-blur-md gap-2 sm:gap-0">
   <div class="flex flex-col items-center sm:items-start">
     <span class="font-mono text-codex-accent text-base sm:text-lg font-bold tracking-tight">MKP-TRI — Living Codex</span>
     <span class="text-xs text-slate-400 font-mono">Sovereign & Inspectable</span>
   </div>
-  <nav class="flex flex-wrap justify-center gap-3 sm:gap-6 text-sm w-full sm:w-auto">
+  <nav class="flex flex-wrap justify-center gap-2 xs:gap-3 sm:gap-6 text-sm w-full sm:w-auto" aria-label="Main navigation">
     {nav.map((item) => (
       <a
         href={item.href}
-        class="text-slate-300 hover:text-codex-accent font-medium transition-colors px-1 py-0.5 rounded"
+        class="text-slate-300 hover:text-codex-accent font-medium transition-colors px-2 py-1 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-codex-accent"
+        tabindex="0"
       >
         {item.label}
       </a>
