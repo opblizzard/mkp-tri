@@ -1,15 +1,18 @@
----
 import Header from "@components/Header.astro";
 import ArtifactModal from "@components/ArtifactModal.astro";
+import { siteContext } from "../data/context";
 ---
 
 <Header />
 <div class="min-h-screen bg-gradient-to-b from-blue-900 via-cyan-900 to-slate-900 text-white flex items-center justify-center">
   <div class="glass-layer w-full max-w-5xl mx-auto px-2 sm:px-6 py-6 sm:py-12 space-y-8 sm:space-y-12">
     <!-- Hero Panel -->
-    <div class="glass-panel text-center mt-24" x-data="{commits: 19, artifacts: 12, lastSync: '2026-01-02', loading: false, refresh() { this.loading = true; setTimeout(() => { this.commits += 1; this.artifacts += 1; this.lastSync = new Date().toISOString().slice(0,10); this.loading = false; }, 800); } }">
-      <h1 class="text-5xl font-bold mb-6">MKP-TRI — Living Codex</h1>
-      <p class="text-xl mb-8">MKP-TRI is a sovereign platform for mythic operations, blending AI, art, and transparency. Explore cycles of creation where every artifact is verifiable.</p>
+    <div class="glass-panel text-center mt-24"
+      x-data="{commits: $astro.props.stats.commits, artifacts: $astro.props.stats.artifacts, lastSync: '$astro.props.stats.lastSync', loading: false, refresh() { this.loading = true; setTimeout(() => { this.commits += 1; this.artifacts += 1; this.lastSync = new Date().toISOString().slice(0,10); this.loading = false; }, 800); } }"
+      :stats="siteContext.stats"
+    >
+      <h1 class="text-5xl font-bold mb-6">{siteContext.hero.home.heading}</h1>
+      <p class="text-xl mb-8">{siteContext.hero.home.subheading}</p>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 text-base sm:text-lg mb-2 sm:mb-4">
         <div>Commits: <span x-text="commits"></span></div>
         <div>Last Sync: <span x-text="lastSync"></span></div>

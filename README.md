@@ -1,11 +1,16 @@
 # MKP-TRI — Living Codex
 
-This repo is the sovereign, inspectable codex for MKP-TRI.
+This repo is the sovereign, inspectable codex and dashboard for MKP-TRI.
 
-- Frontend: Astro + Tailwind
-- Edge: Cloudflare Workers (router, omni, codex)
-- Data: Static artifacts with ceremonial checkpoints
-- CI/CD: GitHub Actions → Cloudflare Pages
+## Features
+
+- **Astro + Tailwind** frontend with Flowbite and Alpine.js for interactive UI
+- **Glassmorphic dashboard**: stacked, rounded, transparent panels with unique blue-to-purple gradients per page
+- **Mobile-first**: fully responsive, with movable (hide-on-scroll) header and touch-friendly spacing
+- **Interactive panels**: Flowbite modals, Alpine.js stats, and dashboard widgets
+- **Edge**: Cloudflare Workers (router, omni, codex)
+- **Data**: Static artifacts with ceremonial checkpoints
+- **CI/CD**: GitHub Actions → Cloudflare Pages
 
 ## Commands
 
