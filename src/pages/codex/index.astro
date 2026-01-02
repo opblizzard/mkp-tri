@@ -9,11 +9,11 @@ const entries = getCodexEntries();
 ---
 
 <Layout title="MKP-TRI · Codex" description="Ceremonial checkpoints and artifacts for MKP-TRI.">
-  <section class="glass w-full max-w-full sm:max-w-3xl px-2 sm:px-8 py-6 sm:py-10 mx-auto mt-16 sm:mt-20 mb-8 sm:mb-12">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-codex-accent font-mono">Codex</h2>
-    <p class="text-base text-slate-300 mb-4 sm:mb-6 font-mono">
-      A chronological list of cycles and artifacts. Each entry is a sovereign event, bound to a commit.
-    </p>
+  <header class="text-center glass w-full max-w-full sm:max-w-3xl px-2 sm:px-8 py-6 sm:py-10 mx-auto mt-16 sm:mt-20 mb-8 sm:mb-12">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-2 text-codex-accent font-mono">Codex</h1>
+    <p class="mx-auto mt-3 max-w-2xl text-slate-300 font-mono">A chronological list of cycles and artifacts. Each entry is a sovereign event, bound to a commit.</p>
+  </header>
+  <section class="w-full max-w-full sm:max-w-3xl mx-auto px-2 sm:px-8">
     {entries.length === 0 ? (
       <p class="text-base text-slate-400 font-mono">No entries yet. The codex is waiting for its first inscription.</p>
     ) : (
