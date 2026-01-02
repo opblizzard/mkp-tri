@@ -5,25 +5,25 @@ import ArtifactModal from "@components/ArtifactModal.astro";
 
 <Header />
 <div class="min-h-screen bg-gradient-to-b from-blue-900 via-cyan-900 to-slate-900 text-white flex items-center justify-center">
-  <div class="glass-layer w-full max-w-5xl mx-auto px-6 py-12 space-y-12">
+  <div class="glass-layer w-full max-w-5xl mx-auto px-2 sm:px-6 py-6 sm:py-12 space-y-8 sm:space-y-12">
     <!-- Hero Panel -->
     <div class="glass-panel text-center mt-24" x-data="{commits: 19, artifacts: 12, lastSync: '2026-01-02', loading: false, refresh() { this.loading = true; setTimeout(() => { this.commits += 1; this.artifacts += 1; this.lastSync = new Date().toISOString().slice(0,10); this.loading = false; }, 800); } }">
       <h1 class="text-5xl font-bold mb-6">MKP-TRI — Living Codex</h1>
       <p class="text-xl mb-8">MKP-TRI is a sovereign platform for mythic operations, blending AI, art, and transparency. Explore cycles of creation where every artifact is verifiable.</p>
-      <div class="grid grid-cols-3 gap-4 text-lg mb-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 text-base sm:text-lg mb-2 sm:mb-4">
         <div>Commits: <span x-text="commits"></span></div>
         <div>Last Sync: <span x-text="lastSync"></span></div>
         <div>Artifacts: <span x-text="artifacts"></span></div>
       </div>
-      <button @click="refresh" :disabled="loading" class="mt-2 px-4 py-2 rounded bg-cyan-600 hover:bg-cyan-500 transition text-white font-mono text-sm disabled:opacity-50">
+      <button @click="refresh" :disabled="loading" class="mt-2 px-3 py-2 sm:px-4 rounded bg-cyan-600 hover:bg-cyan-500 transition text-white font-mono text-xs sm:text-sm disabled:opacity-50">
         <span x-show="!loading">Refresh Stats</span>
         <span x-show="loading" class="animate-pulse">Refreshing...</span>
       </button>
     </div>
 
     <!-- Sub-Dashboard Cards (Flowbite Cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="/operations/" class="glass-panel p-6 hover:scale-105 transition-transform">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <a href="/operations/" class="glass-panel p-3 sm:p-6 hover:scale-105 transition-transform">
         <h3 class="text-2xl mb-2">Operations Terminal</h3>
         <p>Run stubs, view pipelines.</p>
       </a>

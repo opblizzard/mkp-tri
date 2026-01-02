@@ -10,24 +10,30 @@ const navLinks = [
 ];
 ---
 
-<header class="glass-panel border-glow sticky top-4 z-20 mx-auto mt-6 flex w-[min(1100px,95%)] flex-wrap items-center justify-between gap-4 px-6 py-4">
-  <a href="/" class="flex flex-col font-techno text-xs uppercase tracking-[0.4em] text-cyberwhite">
+<header
+  x-data="{ lastScroll: 0, hidden: false }"
+  x-init="window.addEventListener('scroll', () => { hidden = window.scrollY > 32 && window.scrollY > lastScroll; lastScroll = window.scrollY; });"
+  :class="hidden ? 'translate-y-[-120%]' : 'translate-y-0'"
+  class="glass-panel border-glow sticky top-2 z-20 mx-auto mt-2 flex w-[min(1100px,98%)] flex-wrap items-center justify-between gap-2 sm:gap-4 px-2 sm:px-6 py-2 sm:py-4 transition-transform duration-300"
+  style="will-change: transform;"
+>
+  <a href="/" class="flex flex-col font-techno text-[0.7rem] sm:text-xs uppercase tracking-[0.4em] text-cyberwhite">
     <span>{SITE_TITLE}</span>
-    <span class="text-[0.65em] font-mono tracking-[0.6em] text-mkblue">Omni Engine</span>
+    <span class="text-[0.6em] sm:text-[0.65em] font-mono tracking-[0.6em] text-mkblue">Omni Engine</span>
   </a>
 
-  <nav class="flex flex-wrap items-center gap-6">
+  <nav class="flex flex-wrap items-center gap-3 sm:gap-6">
     {navLinks.map((link) => (
       <a
         href={link.href}
-        class={`text-[0.7rem] uppercase tracking-[0.45em] transition-all ${pathname === link.href ? 'text-neonblue' : 'text-cyberwhite/70 hover:text-cyberwhite'}`}
+        class={`text-[0.6rem] sm:text-[0.7rem] uppercase tracking-[0.45em] transition-all ${pathname === link.href ? 'text-neonblue' : 'text-cyberwhite/70 hover:text-cyberwhite'}`}
       >
         {link.label}
       </a>
     ))}
   </nav>
 
-  <div class="hidden items-center gap-2 rounded-full border border-white/15 px-4 py-1 text-[0.6rem] uppercase tracking-[0.35em] text-white/70 md:flex">
+  <div class="hidden items-center gap-1 sm:gap-2 rounded-full border border-white/15 px-2 sm:px-4 py-1 text-[0.5rem] sm:text-[0.6rem] uppercase tracking-[0.35em] text-white/70 md:flex">
     <span>{omni?.signature.node ?? 'CAT-01'}</span>
     <span class="mkp-divider w-10" aria-hidden="true" />
     <span>{omni?.cycle ?? 'PHI-000'}</span>
