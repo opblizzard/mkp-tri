@@ -1,29 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{astro,html,js,jsx,ts,tsx,vue,svelte}",
-    "./public/**/*.html",
+    './src/**/*.{astro,html,js,jsx,ts,tsx,vue}',
+    './public/**/*.html',
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["system-ui", "sans-serif"],
+        sans: ['Inter', 'Satoshi', 'ui-sans-serif', 'system-ui'],
         mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
-        mkp: {
-          background: "#050510",
-          surface: "#101020",
-          accent: "#fbbf24",
-          accentSoft: "#fde68a",
-          text: "#f9fafb",
-          muted: "#9ca3af",
+        background: {
+          DEFAULT: '#181A20',
+          gradient: 'linear-gradient(135deg,#181A20 0%,#23263a 100%)',
         },
-        "codex-bg": "#0f172a",
-        "codex-accent": "#06b6d4",
-        "glass-border": "rgba(255,255,255,0.1)",
-        "codex-gradient-start": "#0f172a",
-        "codex-gradient-end": "#1e293b",
+        accent: {
+          purple: '#7C3AED',
+          gold: '#FFD700',
+          teal: '#2DD4BF',
+        },
+        surface: 'rgba(255,255,255,0.08)',
       },
       backdropBlur: {
         xs: "2px",
@@ -37,8 +34,22 @@ module.exports = {
       },
       transitionProperty: {
         glow: "box-shadow, transform",
+        'fade': 'opacity',
+      },
+      transitionTimingFunction: {
+        'out': 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.2s ease-out',
       },
     },
   },
   plugins: [require("flowbite/plugin")],
+}
 };

@@ -1,0 +1,59 @@
+/* Modern dashboard color palette */
+:root {
+  --color-bg: #181a20;
+  --color-bg-gradient: linear-gradient(135deg, #181a20 0%, #23263a 100%);
+  --color-accent-purple: #7c3aed;
+  --color-accent-gold: #ffd700;
+  --color-accent-teal: #2dd4bf;
+  --color-surface: rgba(255, 255, 255, 0.08);
+  --font-sans: "Inter", "Satoshi", ui-sans-serif, system-ui;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg-gradient);
+  color: #f9fafb;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+/* Micro-animations */
+.animate-fade-in {
+  animation: fade-in 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Accent text */
+.text-accent-purple {
+  color: var(--color-accent-purple);
+}
+.text-accent-gold {
+  color: var(--color-accent-gold);
+}
+.text-accent-teal {
+  color: var(--color-accent-teal);
+}
+
+/* Glassmorphic surface */
+.glass-surface {
+  background: var(--color-surface);
+  backdrop-filter: blur(12px);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px 0 rgba(80, 80, 160, 0.1);
+}
