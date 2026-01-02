@@ -1,29 +1,50 @@
----
 import Layout from "@components/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import CodexEntry from "@components/CodexEntry.astro";
 import { getCodexEntries } from "@lib/codex";
+import GlassCard from "@components/GlassCard.astro";
+import Timeline from "@components/Timeline.astro";
 
 const entries = getCodexEntries();
----
-
 <Layout title="MKP-TRI · Codex" description="Ceremonial checkpoints and artifacts for MKP-TRI.">
-  <header class="text-center glass w-full max-w-full sm:max-w-3xl px-2 sm:px-8 py-6 sm:py-10 mx-auto mt-16 sm:mt-20 mb-8 sm:mb-12">
-    <h1 class="text-2xl sm:text-3xl font-bold mb-2 text-codex-accent font-mono">Codex</h1>
-    <p class="mx-auto mt-3 max-w-2xl text-slate-300 font-mono">A chronological list of cycles and artifacts. Each entry is a sovereign event, bound to a commit.</p>
+  <header class="text-center glass max-w-2xl mx-auto mt-24 mb-10 py-10 px-4">
+    <h1 class="text-4xl font-bold text-codex-accent font-mono mb-2 drop-shadow-glow">Codex</h1>
+    <p class="text-lg text-slate-200 font-mono mb-4">A chronological archive of cycles and artifacts. Each entry is a sovereign event, bound to a commit and ceremony.</p>
   </header>
-  <section class="w-full max-w-full sm:max-w-3xl mx-auto px-2 sm:px-8">
-    {entries.length === 0 ? (
-      <p class="text-base text-slate-400 font-mono">No entries yet. The codex is waiting for its first inscription.</p>
-    ) : (
-      <div class="space-y-3 sm:space-y-4">
-        {entries
-          .slice()
-          .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-          .map((entry) => <CodexEntry {...entry} />)}
-      </div>
-    )}
+  <section class="w-full max-w-4xl mx-auto px-2 mb-12 grid grid-cols-1 gap-8">
+    <GlassCard className="p-6">
+      <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">About the Codex</h3>
+      <p class="text-base text-slate-300 mb-2">The Codex is the living archive of MKP-TRI. Every cycle, artifact, and protocol checkpoint is inscribed here for transparency, provenance, and mythic continuity.</p>
+    </GlassCard>
+    <GlassCard className="p-6">
+      <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Timeline</h3>
+      <Timeline items={[
+        { year: "2023", event: "Genesis cycle inscribed" },
+        { year: "2024", event: "Artifact registry expanded" },
+        { year: "2025", event: "Codex protocol formalized" },
+        { year: "2026", event: "Edge ceremonies unified" },
+      ]} />
+    </GlassCard>
+    <GlassCard className="p-6">
+      <h3 class="font-semibold mb-2 text-codex-accent font-mono text-lg">Codex Entries</h3>
+      {entries.length === 0 ? (
+        <p class="text-base text-slate-400 font-mono">No entries yet. The codex is waiting for its first inscription.</p>
+      ) : (
+        <div class="space-y-3 sm:space-y-4">
+          {entries
+            .slice()
+            .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+            .map((entry) => <CodexEntry {...entry} />)}
+        </div>
+      )}
+    </GlassCard>
   </section>
-  <Footer />
+  <section class="w-full max-w-3xl mx-auto px-2 mb-16">
+    <h2 class="text-2xl font-bold text-codex-accent mb-4 font-mono">Why the Codex?</h2>
+    <div class="glass p-6 text-slate-200 text-base leading-relaxed">
+      The Codex is the ceremonial memory of MKP-TRI. It ensures every cycle, artifact, and protocol is open, inspectable, and sovereign. The archive is ever-expanding, shaped by community and ceremony.<br/><br/>
+      Contribute to the living codex and help inscribe the next mythic checkpoint.
+    </div>
+  </section>
 </Layout>
