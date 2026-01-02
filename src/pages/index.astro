@@ -6,14 +6,18 @@ import Header from "@components/Header.astro";
 <div class="min-h-screen bg-gradient-to-b from-black to-slate-900 text-white">
   <div class="max-w-5xl mx-auto px-6 py-12 space-y-12">
     <!-- Hero Panel -->
-    <div class="glass-panel text-center mt-24">
+    <div class="glass-panel text-center mt-24" x-data="{commits: 19, artifacts: 12, lastSync: '2026-01-02', loading: false, refresh() { this.loading = true; setTimeout(() => { this.commits += 1; this.artifacts += 1; this.lastSync = new Date().toISOString().slice(0,10); this.loading = false; }, 800); } }">
       <h1 class="text-5xl font-bold mb-6">MKP-TRI — Living Codex</h1>
       <p class="text-xl mb-8">MKP-TRI is a sovereign platform for mythic operations, blending AI, art, and transparency. Explore cycles of creation where every artifact is verifiable.</p>
-      <div class="grid grid-cols-3 gap-4 text-lg">
-        <div>Commits: 19</div>
-        <div>Last Sync: 2026-01-02</div>
-        <div>Artifacts: 12</div>
+      <div class="grid grid-cols-3 gap-4 text-lg mb-4">
+        <div>Commits: <span x-text="commits"></span></div>
+        <div>Last Sync: <span x-text="lastSync"></span></div>
+        <div>Artifacts: <span x-text="artifacts"></span></div>
       </div>
+      <button @click="refresh" :disabled="loading" class="mt-2 px-4 py-2 rounded bg-cyan-600 hover:bg-cyan-500 transition text-white font-mono text-sm disabled:opacity-50">
+        <span x-show="!loading">Refresh Stats</span>
+        <span x-show="loading" class="animate-pulse">Refreshing...</span>
+      </button>
     </div>
 
     <!-- Quick Sections Panel -->
