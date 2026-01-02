@@ -3,7 +3,32 @@
 @tailwind utilities;
 
 body {
-  @apply bg-codex-bg text-slate-100 font-sans;
+  @apply bg-codex-bg text-slate-100 font-sans min-h-screen;
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  position: relative;
+}
+
+.bg-codex-gradient {
+  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-glass-border rounded-xl shadow-glass transition-glow duration-200;
+}
+
+.glass:hover {
+  @apply shadow-glow scale-105;
+}
+
+.drop-shadow-glow {
+  filter: drop-shadow(0 0 8px #06b6d4);
+}
+
+.particle-bg {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 a {

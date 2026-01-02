@@ -22,9 +22,21 @@ module.exports = {
         "codex-bg": "#0f172a",
         "codex-accent": "#06b6d4",
         "glass-border": "rgba(255,255,255,0.1)",
+        "codex-gradient-start": "#0f172a",
+        "codex-gradient-end": "#1e293b",
       },
       backdropBlur: {
         xs: "2px",
+      },
+      boxShadow: {
+        glow: "0 0 16px 0 rgba(6,182,212,0.5)",
+        glass: "0 4px 32px 0 rgba(6,182,212,0.10)",
+      },
+      backgroundImage: {
+        "codex-gradient": "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+      },
+      transitionProperty: {
+        glow: "box-shadow, transform",
       },
     },
   },

@@ -1,0 +1,30 @@
+// src/data/content.json
+{
+  "stats": {
+    "commits": 19,
+    "lastSync": "2026-01-02",
+    "artifacts": 12
+  },
+  "featuredArtifacts": [
+    {
+      "title": "Cycle Alpha: Genesis of the Codex",
+      "desc": "A ceremonial blueprint for inspectable architecture.",
+      "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      "title": "Cycle Beta: Edge Worker Ceremony",
+      "desc": "Binding edge logic to sovereign transparency.",
+      "img": "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+      "title": "Cycle Gamma: Mythic Sync",
+      "desc": "Synchronizing mythic state with verifiable checkpoints.",
+      "img": "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+    }
+  ],
+  "timeline": [
+    { "date": "2026-01-02", "event": "Gallery Expansion – #visual #artifacts" },
+    { "date": "2026-01-01", "event": "Omni Console Launched – #ai #console" },
+    { "date": "2025-12-30", "event": "Codex Birth – #genesis #archive" }
+  ]
+}

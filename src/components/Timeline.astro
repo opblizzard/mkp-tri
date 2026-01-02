@@ -1,0 +1,15 @@
+---
+// Timeline.astro: Vertical timeline for codex/events, with progress bar and slot for entries
+const { items = [] } = Astro.props;
+---
+<div class="relative pl-6">
+  <div class="absolute left-2 top-0 bottom-0 w-1 bg-codex-accent/20 rounded-full"></div>
+  {items.map((item, i) => (
+    <div class="relative mb-8">
+      <div class="absolute left-[-10px] top-2 w-4 h-4 bg-codex-accent rounded-full shadow-glow"></div>
+      <div class="ml-8">
+        <slot name={`item-${i}`}>{item.content}</slot>
+      </div>
+    </div>
+  ))}
+</div>

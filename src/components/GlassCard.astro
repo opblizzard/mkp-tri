@@ -1,0 +1,8 @@
+---
+// GlassCard.astro: Reusable glassmorphic card with slot for content and optional hover glow
+const { as = 'div', className = '', ...props } = Astro.props;
+const Tag = as;
+---
+<Tag class={`glass shadow-glass transition-glow duration-200 hover:shadow-glow hover:scale-105 ${className}`} {...props}>
+  <slot />
+</Tag>
